@@ -48,10 +48,6 @@ jobs:
     name: Test workflow for DatenBaneken Server
     runs-on: ubuntu-latest
 
-
-    # Start database service necessary to execute the RSpec tests
-    services:
-
     strategy:
       matrix:
         node-version: [16.x]
