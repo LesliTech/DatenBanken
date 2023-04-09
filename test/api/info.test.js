@@ -32,7 +32,7 @@ Building a better future, one line of code at a time.
 
 
 // · 
-const { app, expect, config, request, response, expectResponseWithSuccessful } = require("../../helper");
+const { app, expect, config, request, response, expectResponseWithSuccessful } = require("../helper");
 
 
 // Tests for databases
@@ -47,8 +47,6 @@ describe("GET:/api", function () {
     })
 
     expectResponseWithSuccessful(result)
-
-
 
     it("is expected to respond with status", function () {
         expect(result.response.body).to.have.property("status")

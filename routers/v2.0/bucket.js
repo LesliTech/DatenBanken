@@ -36,7 +36,7 @@ const express = require("express")
 
 
 // Import MongoDB queries
-const databaseController = require("./../controllers/bucket/database")
+const databaseController = require("./../../controllers/v2.0/bucket/database")
 // const collectionController = require("./../controllers/bucket/collection")
 // const documentController = require("../controllers/bucket/document")
 

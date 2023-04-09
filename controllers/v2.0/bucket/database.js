@@ -32,8 +32,8 @@ Building a better future, one line of code at a time.
 
 
 // · Import tools
-const DatenBankenController = require("./../datenbanken")
-const { database } = require("./../../system/database")
+const DatenBankenController = require("../../datenbanken")
+const { database } = require("./../../../system/database")
 
 class DatabaseController extends DatenBankenController {
 
