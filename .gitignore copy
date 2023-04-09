@@ -1,0 +1,12 @@
+.DS_Store
+
+npm-debug.log
+package-lock.json
+
+*.xlsx
+config/*.js
+!config/environment.js
+
+node_modules
+coverage
+tmp

@@ -2,13 +2,11 @@
     <img width="120px" alt="DatanBanken logo" src="./docs/images/brand/datenbanken-logo.png" />
 </p>
 
-<h3 align="center">Database as a REST API Service</h3>
-
-**IMPORTANT:** Code will be available soon! :D
+<h3 align="center">API-First Database as a Service</h3>
 
 <hr/>
 
-Version 0.1.0-alpha  
+Version 2.0.0 
 
 
 #### Install from source  
