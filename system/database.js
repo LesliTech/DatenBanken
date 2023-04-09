@@ -31,30 +31,23 @@ Building a better future, one line of code at a time.
 */
 
 
-// · 
-const config = require("lesli-nodejs-configuration")
 
-
-// · Including framework and controllers
-const express = require("express")
-
-
-//  · Routes builder
-const api = express.Router()
-
-
-//  · Welcome messages
-api.get("", (request, response) => {
-    response.status(200).send({
-        status: "ok",
-        name: config.info.name,
-        version: config.info.version,
-        description: config.info.description,
-        homepage: config.info.homepage,
-        license: config.info.license
-    })
-})
+// · Import frameworks, libraries and tools
+const configuration = require("lesli-nodejs-configuration")
+let { database, collection, document } = require("lesli-nodejs-mongodb-tools/src/query")
 
 
 // · 
-module.exports = api
+if (!configuration.databaseSettings) {
+    exports.database = {}
+    exports.document = {}
+    exports.collection = {}
+}
+
+
+// · 
+if (configuration.databaseSettings) {
+    exports.database = new database(configuration.databaseSettings)
+    //exports.document = new document(configuration.databaseSettings)
+    //exports.collection = new collection(configuration.ddatabaseSettingsatabase)
+}

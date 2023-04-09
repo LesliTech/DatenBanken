@@ -39,11 +39,6 @@
         "prepare:dev": "node dev/development.js --exit",
         "prepare:production": "node dev/production.js --exit",
 
-        "test": "NODE_ENV=test mocha --reporter spec 'tests/**/**/*.test.js' --exit",
-        "test:core": "clear && mocha --reporter spec 'tests/http/core/*.test.js' --exit",
-        "test:auth": "clear && mocha --reporter spec 'tests/http/auth/*.test.js' --exit",
-        "test:bucket": "clear && mocha --reporter spec 'tests/http/bucket/*.test.js' --exit",
-        "test:management": "clear && mocha --reporter spec 'tests/http/management/*.test.js' --exit",
-        "test:coverage": "mocha --reporter spec 'tests/http/**/*.test.js' --exit"
+        "test": "NODE_ENV=test mocha --recursive --exit"
     }
 }

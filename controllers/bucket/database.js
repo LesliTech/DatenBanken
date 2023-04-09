@@ -1,5 +1,5 @@
 "use strict"
-/**
+/*
 Lesli
 
 Copyright (c) 2023, Lesli Technologies, S. A.
@@ -31,30 +31,28 @@ Building a better future, one line of code at a time.
 */
 
 
-// · 
-const config = require("lesli-nodejs-configuration")
+// · Import tools
+const DatenBankenController = require("./../datenbanken")
+const { database } = require("./../../system/database")
 
+class DatabaseController extends DatenBankenController {
 
-// · Including framework and controllers
-const express = require("express")
+    get_database(request, response){
 
+        database.read({ database: "buckets" }).then(result => {
 
-//  · Routes builder
-const api = express.Router()
+            super.respondWithSuccessful(response, result)
 
+        }).catch(error => {
 
-//  · Welcome messages
-api.get("", (request, response) => {
-    response.status(200).send({
-        status: "ok",
-        name: config.info.name,
-        version: config.info.version,
-        description: config.info.description,
-        homepage: config.info.homepage,
-        license: config.info.license
-    })
-})
+            console.log(error);
 
+            super.responseWithError(response, "000000", "error", error)
 
-// · 
-module.exports = api
+        })
+
+    }
+
+}
+
+module.exports = new DatabaseController

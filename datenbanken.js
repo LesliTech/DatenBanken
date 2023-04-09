@@ -32,7 +32,6 @@ Building a better future, one line of code at a time.
 
 
 // · Import frameworks, libraries, tools and apps
-const app = require("./app")
 const debug = require("lesli-js").debug.nodejs
 
 
@@ -48,26 +47,7 @@ process.env.NODE_ENV = (production ? "production" : "development")
 const config = require("lesli-nodejs-configuration")
 
 
-// · Import DatenBanken routes
-const infoRoutes = require("./routers/info")
-
-
-// DatenBanken routes
-app.use("/api", infoRoutes)
-
-app.use((req, res, next) => {
-    console.log('Time:', Date.now())
-    next()
-})
-
-
-app.use((req, res, next) => {
-    res.status(404).send("<h1>Page not found on the server</h1>")
-
-    //const statusCode = err.statusCode || 500;
-    //console.error(err.message, err.stack);
-    //res.status(statusCode).json({'message': err.message});
-})
+const app = require("./app")
 
 
 // · 

@@ -1,5 +1,5 @@
 "use strict"
-/**
+/*
 Lesli
 
 Copyright (c) 2023, Lesli Technologies, S. A.
@@ -32,29 +32,50 @@ Building a better future, one line of code at a time.
 
 
 // · 
-const config = require("lesli-nodejs-configuration")
+class DatenBankenController {
+
+    respondWithSuccessful(response, payload = {}) {
+
+        response.type("application/json") 
+
+        return response.status(200).send(payload)
+        
+    }
 
 
-// · Including framework and controllers
-const express = require("express")
+    respondWithError(response, code, message = false, details = false) {
+        /*
+        * 01    -> Component (controller, middleware, router, system)
+        * 01    -> File number
+        * 01    -> Method number
+        * 00    -> Correlative
+        */
+        let error_codes = {
 
+            '00000000': 'Internal app error',
 
-//  · Routes builder
-const api = express.Router()
+            // controller errors - auth
+            '01020101': 'Not valid parameters found'
 
+        }
 
-//  · Welcome messages
-api.get("", (request, response) => {
-    response.status(200).send({
-        status: "ok",
-        name: config.info.name,
-        version: config.info.version,
-        description: config.info.description,
-        homepage: config.info.homepage,
-        license: config.info.license
-    })
-})
+        // default response message
+        let error = {
+            code: code,
+            details: details,
+            message: message || error_codes[code]
+        }
+
+        //
+        response.status(200).send({
+            successful: false,
+            error
+        })
+
+    }
+
+}
 
 
 // · 
-module.exports = api
+module.exports = DatenBankenController

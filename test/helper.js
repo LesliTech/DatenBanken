@@ -1,5 +1,4 @@
-"use strict"
-/**
+/*
 Lesli
 
 Copyright (c) 2023, Lesli Technologies, S. A.
@@ -31,30 +30,43 @@ Building a better future, one line of code at a time.
 */
 
 
-// · 
+// · Import frameworks, libraries, tools and apps
+const chai = require("chai");
+const expect = require("chai").expect;
+const chaiHttp = require("chai-http");
+const debug = require("lesli-js").debug.nodejs
+
+
+// · Set environment mode
+process.env.NODE_ENV = "test"
+
+
+// · Import & build configuration
 const config = require("lesli-nodejs-configuration")
 
 
-// · Including framework and controllers
-const express = require("express")
+// · assign http plugin to chain framework
+chai.use(chaiHttp);
 
 
-//  · Routes builder
-const api = express.Router()
-
-
-//  · Welcome messages
-api.get("", (request, response) => {
-    response.status(200).send({
-        status: "ok",
-        name: config.info.name,
-        version: config.info.version,
-        description: config.info.description,
-        homepage: config.info.homepage,
-        license: config.info.license
-    })
-})
+// · Import app
+var app = require("../app")
 
 
 // · 
-module.exports = api
+exports.app = app
+exports.expect = expect
+exports.config = config
+exports.request = chai.request
+
+exports.expectResponseWithSuccessful = (result) => {
+
+    it("is expected to respond with a success status code (2xx)", function() {
+        expect(result.response).to.have.status(200)
+    })
+
+    it("is expected to respond with application/json", function () {
+        expect(result.response).to.have.header("content-type", "application/json; charset=utf-8")
+    })
+
+}    

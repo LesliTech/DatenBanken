@@ -52,4 +52,30 @@ app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
+
+// · Import DatenBanken routes
+const infoRoutes = require("./routers/info")
+const bucketRoutes = require("./routers/bucket")
+
+
+// DatenBanken routes
+app.use("/api", infoRoutes)
+app.use("/api/bucket", bucketRoutes)
+
+app.use((req, res, next) => {
+    console.log('Time:', Date.now())
+    next()
+})
+
+
+app.use((req, res, next) => {
+    res.status(404).send("<h1>Page not found on the server</h1>")
+
+    //const statusCode = err.statusCode || 500;
+    //console.error(err.message, err.stack);
+    //res.status(statusCode).json({'message': err.message});
+})
+
+
+
 module.exports = app
