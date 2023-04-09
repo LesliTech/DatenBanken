@@ -32,7 +32,7 @@ Building a better future, one line of code at a time.
 
 
 // · 
-const { app, expect, config, request, response, expectResponseWithSuccessful } = require("../helper");
+const { app, expect, config, request, expectResponseWithSuccessful } = require("../helper");
 
 
 // Tests for databases

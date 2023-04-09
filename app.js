@@ -60,7 +60,7 @@ const bucketRoutes = require("./routers/v2.0/bucket")
 
 // DatenBanken routes
 app.use("/api", infoRoutes)
-app.use("/api/bucket", bucketRoutes)
+app.use("/api/v2.0/bucket", bucketRoutes)
 
 app.use((req, res, next) => {
     console.log('Time:', Date.now())
