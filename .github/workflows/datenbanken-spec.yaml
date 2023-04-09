@@ -40,11 +40,6 @@ on:
     branches: [master, production]
 
 
-  # run a test daily at 1 am (Guatemala time)
-  schedule:
-    - cron: '0 12 * * 7'
-
-
   # Allow to execute this test manually from the Github web app
   workflow_dispatch:
 
