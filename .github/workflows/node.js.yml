@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "master" ]
 
+  # Allow to execute this test manually from the Github web app
+  workflow_dispatch:
+
 jobs:
   build:
 
