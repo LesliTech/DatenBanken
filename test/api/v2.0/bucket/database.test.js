@@ -43,7 +43,7 @@ describe("GET:/api/v2.0/bucket", function () {
     }
 
     beforeEach(async () => {
-        result.response = await request(app).get("/api/v2.0/bucket")
+        result.response = await request(app).get("/api/v2.0/buckets")
     })
 
     expectResponseWithSuccessful(result)
