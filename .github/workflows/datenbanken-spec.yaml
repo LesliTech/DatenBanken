@@ -53,6 +53,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+        mongodb-version: [5.0]
 
     steps:
 
@@ -68,8 +69,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+
+      # Start mongodb
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.8.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+
+
       # install packages
       - run: npm ci
+
 
       # Run tests
       - name: "Run specs"
