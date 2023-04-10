@@ -78,12 +78,14 @@ jobs:
 
 
       # install packages
-      - run: npm ci
+      - name: Install NPM packages
+        run: npm ci
       
       
-      - run: cp ./config/environment.js ./config/test.js
+      - name: Copy environment test file
+        run: cp ./config/environment.js ./config/test.js
 
 
       # Run tests
-      - name: "Run specs"
+      - name: Run specs
         run: npm test
