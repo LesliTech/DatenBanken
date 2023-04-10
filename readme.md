@@ -25,8 +25,7 @@ Version 2.0.0
 * Built-in HTTP REST API
 * Fast native MongoDB implementation
 * Integrations:  
-	* Mailgun
-    * Cron 
+
 
 
 #### Requirements  

@@ -38,12 +38,15 @@ const express = require("express")
 const bodyParser = require("body-parser")
 
 
+
 // · Building app
 const app = express()
 
 
+
 // · setting cors
 app.use(cors({ origin: "*" }))
+
 
 
 // · protecting api server
@@ -58,23 +61,29 @@ const infoRoutes = require("./routers/info")
 const bucketRoutes = require("./routers/v2.0/bucket")
 
 
-// DatenBanken routes
-app.use("/api", infoRoutes)
-app.use("/api/v2.0/bucket", bucketRoutes)
-
+// · 
 app.use((req, res, next) => {
-    console.log('Time:', Date.now())
+    console.log('Time:', Date.now(), req.originalUrl)
     next()
 })
 
 
-app.use((req, res, next) => {
-    res.status(404).send("<h1>Page not found on the server</h1>")
+// · DatenBanken routes
+app.use("/api", infoRoutes)
+app.use("/api/v2.0/buckets", bucketRoutes)
 
-    //const statusCode = err.statusCode || 500;
-    //console.error(err.message, err.stack);
-    //res.status(statusCode).json({'message': err.message});
-})
+
+
+
+
+
+// app.use((req, res, next) => {
+//     res.status(404).send("<h1>Page not found on the server</h1>")
+
+//     //const statusCode = err.statusCode || 500;
+//     //console.error(err.message, err.stack);
+//     //res.status(statusCode).json({'message': err.message});
+// })
 
 
 

@@ -2,5 +2,13 @@
 .cache
 .DS_Store
 .sass-cache
+
+npm-debug.log
+
 build/
 node_modules/
+coverage
+tmp
+
+config/*.js
+!config/environment.js

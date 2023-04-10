@@ -35,9 +35,10 @@ Building a better future, one line of code at a time.
 const DatenBankenController = require("../../datenbanken")
 const { database } = require("./../../../system/database")
 
-class DatabaseController extends DatenBankenController {
 
-    get_database(request, response){
+class BucketDatabaseController extends DatenBankenController {
+
+    getDatabase(request, response){
 
         database.read({ database: "buckets" }).then(result => {
 
@@ -55,4 +56,6 @@ class DatabaseController extends DatenBankenController {
 
 }
 
-module.exports = new DatabaseController
+
+// · 
+module.exports = new BucketDatabaseController

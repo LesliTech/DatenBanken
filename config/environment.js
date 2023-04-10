@@ -45,14 +45,15 @@ module.exports = {
 
     // initial information
     account: {
-        email: "dev@raven.gt",
-        password: "raven$2022",
+        email: "admin@datenbanken.dev",
+        password: "db$2022",
         secretKey: "YOUR_SECRET_KEY",
     },
 
 
     // database connection details
     databaseSettings: {
+        namespace: "db",
         name: "datenbanken",
         host: "127.0.0.1",
         port: "27017",

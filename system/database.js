@@ -48,6 +48,6 @@ if (!configuration.databaseSettings) {
 // · 
 if (configuration.databaseSettings) {
     exports.database = new database(configuration.databaseSettings)
-    //exports.document = new document(configuration.databaseSettings)
-    //exports.collection = new collection(configuration.ddatabaseSettingsatabase)
+    exports.document = new document(configuration.databaseSettings)
+    exports.collection = new collection(configuration.databaseSettings)
 }

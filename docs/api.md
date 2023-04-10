@@ -10,12 +10,13 @@ POS   /api/auth/password
 PUT   /api/auth/password
 
 POS   /api/token
-DEL   /api/token/:tokenId
+DEL   /api/token/:token
 
-GET   /api/buckets
-GET   /api/buckets/:bucketId
-GET   /api/buckets/:bucketId/records
-GET   /api/buckets/:bucketId/records/:recordId
+GET ★ /api/buckets
+GET ★ /api/buckets/:bucket
+GET ★ /api/buckets/:bucket/documents
+GET ★ /api/buckets/:bucket/documents/first
+GET ★ /api/buckets/:bucket/documents/last
 
 GET   /api/accounts
 DEL   /api/accounts/:accountId

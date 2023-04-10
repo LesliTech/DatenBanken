@@ -45,8 +45,8 @@ module.exports = {
 
     // initial information
     account: {
-        email: "dev@raven.gt",
-        password: "raven$2022",
+        email: "admin@datenbanken.dev",
+        password: "db$2022",
         secretKey: "YOUR_SECRET_KEY",
     },
 

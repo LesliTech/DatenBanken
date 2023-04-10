@@ -47,10 +47,11 @@ process.env.NODE_ENV = (production ? "production" : "development")
 const config = require("lesli-nodejs-configuration")
 
 
+// · Import web app
 const app = require("./app")
 
 
-// · 
+// · starting http web server
 app.listen(config.port, () => {
     debug.info(`DatenBanken server listening at http://localhost:${ config.port }`)
 });
