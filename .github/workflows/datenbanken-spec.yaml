@@ -79,6 +79,9 @@ jobs:
 
       # install packages
       - run: npm ci
+      
+      
+      - run: cp ~/config/environment.js ~/config/test.js
 
 
       # Run tests
