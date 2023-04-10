@@ -81,7 +81,7 @@ jobs:
       - run: npm ci
       
       
-      - run: cp ~/config/environment.js ~/config/test.js
+      - run: cp ./config/environment.js ./config/test.js
 
 
       # Run tests
