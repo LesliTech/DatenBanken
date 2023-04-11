@@ -9,6 +9,7 @@
 Version 2.0.0 
 
 
+
 #### Install from source  
 ------
 ```
@@ -18,6 +19,7 @@ Version 2.0.0
     npm run test
     npm run dev
 ```
+
 
 
 #### Features  
@@ -30,9 +32,10 @@ Version 2.0.0
 
 #### Requirements  
 ------
-* NodeJS 18+  
+* NodeJS 16+  
 * MongoDB 5+
 * NPM  
+
 
 
 #### Website & documentation

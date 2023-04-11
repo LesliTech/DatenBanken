@@ -36,14 +36,14 @@ const { app, expect, config, request, result, faker, expectResponseWithSuccessfu
 
 
 // Tests for buckets
-describe("GET:/api/v2.0/buckets", function () {
+describe("GET:/api/v2/buckets", function () {
 
     let result = {
         response: undefined
     }
 
     beforeEach(async () => {
-        result.response = await request(app).get("/api/v2.0/buckets")
+        result.response = await request(app).get("/api/v2/buckets")
     })
 
     expectResponseWithSuccessful(result)
@@ -57,7 +57,7 @@ describe("GET:/api/v2.0/buckets", function () {
 })
 
 
-describe("POST:/api/v2.0/buckets", function () {
+describe("POST:/api/v2/buckets", function () {
 
     let result = {
         bucketId: undefined,
@@ -66,7 +66,7 @@ describe("POST:/api/v2.0/buckets", function () {
 
     beforeEach(async () => {
         result.bucketId = faker.datatype.uuid()
-        result.response = await request(app).post("/api/v2.0/buckets/" + result.bucketId)
+        result.response = await request(app).post("/api/v2/buckets/" + result.bucketId)
     })
 
     expectResponseWithSuccessful(result)
@@ -80,7 +80,7 @@ describe("POST:/api/v2.0/buckets", function () {
 })
 
 // Tests for databases
-describe("GET:/api/v2.0/buckets/:id", function () {
+describe("GET:/api/v2/buckets/:id", function () {
 
     let result = {
         response: undefined
@@ -89,7 +89,7 @@ describe("GET:/api/v2.0/buckets/:id", function () {
     beforeEach(async () => {
         let bucketId = faker.datatype.uuid()
         await request(app).post("/api/v2.0/buckets/" + bucketId)
-        result.response = await request(app).get("/api/v2.0/buckets/" + bucketId)
+        result.response = await request(app).get("/api/v2/buckets/" + bucketId)
     })
 
     expectResponseWithSuccessful(result)

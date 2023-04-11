@@ -36,7 +36,7 @@ const { app, expect, config, request, result, faker, expectResponseWithSuccessfu
 
 
 // Tests for buckets
-describe("GET:/api/v2.0/buckets/:bucket/documents", function () {
+describe("GET:/api/v2/buckets/:bucket/documents", function () {
 
     let result = {
         response: undefined
@@ -44,8 +44,8 @@ describe("GET:/api/v2.0/buckets/:bucket/documents", function () {
 
     beforeEach(async () => {
         let user = { name: faker.name.fullName(), job: faker.name.jobTitle() }
-        await request(app).post("/api/v2.0/buckets/my-users/documents").send(user)
-        result.response = await request(app).get("/api/v2.0/buckets/my-users/documents")
+        await request(app).post("/api/v2/buckets/my-users/documents").send(user)
+        result.response = await request(app).get("/api/v2/buckets/my-users/documents")
     })
 
     expectResponseWithSuccessful(result)

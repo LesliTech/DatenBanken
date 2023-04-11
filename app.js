@@ -51,7 +51,7 @@ app.use(cors({ origin: "*" }))
 
 // · protecting api server
 app.use(helmet())
-app.use(bodyParser.json({ limit: "50mb" }))
+app.use(bodyParser.json({ limit: "1mb" }))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
@@ -71,8 +71,8 @@ app.use((req, res, next) => {
 
 // · DatenBanken routes
 app.use("/api", infoRoutes)
-app.use("/api/v2.0/database", databaseRoutes)
-app.use("/api/v2.0/buckets", bucketRoutes)
+app.use("/api/v2/database", databaseRoutes)
+app.use("/api/v2/buckets", bucketRoutes)
 
 
 
