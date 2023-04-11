@@ -37,9 +37,8 @@ const express = require("express")
 
 
 // Import MongoDB queries
-//const bucketDatabaseController = require("../../controllers/v2.0/bucket/database")
+const bucketController = require("../../controllers/v2.0/bucket")
 const bucketCollectionController = require("../../controllers/v2.0/bucket/collection")
-const bucketDocumentController = require("../../controllers/v2.0/bucket/document")
 
 
 
@@ -49,7 +48,7 @@ let api = express.Router()
 
 
 // · Database endpoints
-//api.get("/", bucketDatabaseController.getDatabase)
+api.get("/", bucketController.getBuckets)
 
 
 
@@ -60,10 +59,10 @@ api.post("/:bucket", bucketCollectionController.postCollection) // Create a coll
 
 
 // Document endpoints
-api.get("/:bucket/documents", bucketDocumentController.getDocuments)            // Create document
-api.post("/:bucket/documents", bucketDocumentController.postDocument)           // Create document
-api.get("/:bucket/documents/last", bucketDocumentController.getDocumentLast)    // Get the last document found
-api.get("/:bucket/documents/first", bucketDocumentController.getDocumentFirst)  // Get the first document found
+// api.get("/:bucket/documents", bucketDocumentController.getDocuments)            // Create document
+// api.post("/:bucket/documents", bucketDocumentController.postDocument)           // Create document
+// api.get("/:bucket/documents/last", bucketDocumentController.getDocumentLast)    // Get the last document found
+// api.get("/:bucket/documents/first", bucketDocumentController.getDocumentFirst)  // Get the first document found
 
 
 

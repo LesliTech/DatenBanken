@@ -31,18 +31,21 @@ Building a better future, one line of code at a time.
 */
 
 
-// · Import tools
+// · Including framework and controllers
 const DatenBankenController = require("../datenbanken")
 const { database } = require("../../system/database")
 
 
-class DatabaseController extends DatenBankenController {
+//  · 
+class BucketController extends DatenBankenController {
 
-    getDatabase(request, response){
 
-        database.read({ database: request.params.database }).then(result => {
+    // · Get collection
+    getBuckets(request, response){
+        
+        database.read({ database: "buckets" }).then(result => {
 
-            super.respondWithSuccessful(response, result)
+            super.respondWithSuccessful(response, result.buckets)
 
         }).catch(error => {
 
@@ -54,8 +57,18 @@ class DatabaseController extends DatenBankenController {
 
     }
 
+    // · Create Collection
+    postCollection(request, response) {
+
+        collection.create({
+            database: "buckets",
+            collection: request.params.bucket
+        }).then(result => {
+            super.respondWithSuccessful(response, { bucket: request.params.bucket })
+
+        })
+
+    }
 }
 
-
-// · 
-module.exports = new DatabaseController
+module.exports = new BucketController
