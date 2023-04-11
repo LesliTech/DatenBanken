@@ -58,7 +58,40 @@ class BucketController extends DatenBankenController {
     }
 
     // · Create Collection
-    postCollection(request, response) {
+    postBucket(request, response) {
+
+        collection.create({
+            database: "buckets",
+            collection: request.params.bucket
+        }).then(result => {
+            super.respondWithSuccessful(response, { bucket: request.params.bucket })
+
+        })
+
+    }
+
+    // · Get collection
+    getBucket(request, response){
+        
+        collection.read({
+            database: "buckets",
+            collection: request.params.bucket
+        }).then(result => {
+
+            super.respondWithSuccessful(response, result)
+
+        }).catch(error => {
+
+            console.log(error);
+
+            super.responseWithError(response, "000000", "error", error)
+
+        })
+
+    }
+
+    // · Create Collection
+    postBucket(request, response) {
 
         collection.create({
             database: "buckets",

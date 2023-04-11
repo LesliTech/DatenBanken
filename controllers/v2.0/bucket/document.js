@@ -39,6 +39,32 @@ const { document } = require("./../../../system/database")
 //  ·
 class BucketDocumentController extends DatenBankenController {
 
+    getDocuments(request, response) {
+
+        let query = {}
+
+        if (Object.keys(request.query).length > 0) {
+
+            query = request.query
+
+        }
+
+        document.find({
+            database: "buckets",
+            collection: request.params.bucket
+        }, query).then(result => {
+
+            super.respondWithSuccessful(response, result)
+
+        }).catch(error => {
+
+            super.debug.error(error)
+            super.responseWithError(response, "000000", "error", error)
+
+        })
+
+    }
+
     getDocumentFirst(request, response){
 
         document.first({
@@ -73,32 +99,6 @@ class BucketDocumentController extends DatenBankenController {
             super.responseWithError(response, "000000", "error", error)
 
         })
-    }
-
-    getDocuments(request, response) {
-
-        let query = {}
-
-        if (Object.keys(request.query).length > 0) {
-
-            query = request.query
-
-        }
-
-        document.find({
-            database: "buckets",
-            collection: request.params.bucket
-        }, query).then(result => {
-
-            super.respondWithSuccessful(response, result)
-
-        }).catch(error => {
-
-            super.debug.error(error)
-            super.responseWithError(response, "000000", "error", error)
-
-        })
-
     }
 
     postDocument(request, response){

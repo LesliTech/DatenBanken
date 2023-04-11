@@ -15,7 +15,10 @@ DEL   /api/token/:token
 GET ★ /api/database
 
 GET ★ /api/buckets
+
 GET ★ /api/buckets/:bucket
+POS ★ /api/buckets/:bucket
+
 GET ★ /api/buckets/:bucket/documents
 GET ★ /api/buckets/:bucket/documents/first
 GET ★ /api/buckets/:bucket/documents/last

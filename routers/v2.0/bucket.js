@@ -35,35 +35,29 @@ Building a better future, one line of code at a time.
 const express = require("express")
 
 
-
 // Import MongoDB queries
 const bucketController = require("../../controllers/v2.0/bucket")
-const bucketCollectionController = require("../../controllers/v2.0/bucket/collection")
-
+const bucketDocumentController = require("../../controllers/v2.0/bucket/document")
 
 
 // · Routes builder
 let api = express.Router()
 
 
-
-// · Database endpoints
+// · Database information
 api.get("/", bucketController.getBuckets)
 
 
-
-// · Collection endpoints
-api.get("/:bucket", bucketCollectionController.getCollection)   // Return information of a collection
-api.post("/:bucket", bucketCollectionController.postCollection) // Create a collection
-
+// · information about a bucket inside the buckets database 
+api.get("/:bucket", bucketController.getBucket)   // Return information of a collection
+api.post("/:bucket", bucketController.postBucket) // Create a collection
 
 
-// Document endpoints
-// api.get("/:bucket/documents", bucketDocumentController.getDocuments)            // Create document
-// api.post("/:bucket/documents", bucketDocumentController.postDocument)           // Create document
-// api.get("/:bucket/documents/last", bucketDocumentController.getDocumentLast)    // Get the last document found
-// api.get("/:bucket/documents/first", bucketDocumentController.getDocumentFirst)  // Get the first document found
-
+// Work with documents from a bucket
+api.get("/:bucket/documents", bucketDocumentController.getDocuments)            // Get all documents of a bucket
+api.post("/:bucket/documents", bucketDocumentController.postDocument)           // Create document
+api.get("/:bucket/documents/last", bucketDocumentController.getDocumentLast)    // Get the last document found
+api.get("/:bucket/documents/first", bucketDocumentController.getDocumentFirst)  // Get the first document found
 
 
 // · 
