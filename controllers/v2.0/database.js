@@ -32,15 +32,15 @@ Building a better future, one line of code at a time.
 
 
 // · Import tools
-const DatenBankenController = require("../../datenbanken")
-const { database } = require("./../../../system/database")
+const DatenBankenController = require("../datenbanken")
+const { database } = require("../../system/database")
 
 
 class BucketDatabaseController extends DatenBankenController {
 
     getDatabase(request, response){
 
-        database.read({ database: "buckets" }).then(result => {
+        database.read({ database: request.params.database }).then(result => {
 
             super.respondWithSuccessful(response, result)
 

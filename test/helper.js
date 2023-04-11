@@ -34,7 +34,8 @@ Building a better future, one line of code at a time.
 const chai = require("chai");
 const expect = require("chai").expect;
 const chaiHttp = require("chai-http");
-const debug = require("lesli-js").debug.nodejs
+const debug = require("lesli-js").debug.nodejs;
+const { faker } = require("@faker-js/faker");
 
 
 // · Set environment mode
@@ -58,6 +59,8 @@ exports.app = app
 exports.expect = expect
 exports.config = config
 exports.request = chai.request
+exports.faker = faker
+exports.result = { response: undefined }
 
 exports.expectResponseWithSuccessful = (result) => {
 

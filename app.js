@@ -58,22 +58,21 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // · Import DatenBanken routes
 const infoRoutes = require("./routers/info")
+const databaseRoutes = require("./routers/v2.0/database")
 const bucketRoutes = require("./routers/v2.0/bucket")
 
 
 // · 
 app.use((req, res, next) => {
-    console.log('Time:', Date.now(), req.originalUrl)
+    //console.log('Time:', Date.now(), req.originalUrl)
     next()
 })
 
 
 // · DatenBanken routes
 app.use("/api", infoRoutes)
+app.use("/api/v2.0/database", databaseRoutes)
 app.use("/api/v2.0/buckets", bucketRoutes)
-
-
-
 
 
 

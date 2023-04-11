@@ -32,7 +32,7 @@ Building a better future, one line of code at a time.
 
 
 // · 
-const { app, expect, config, request, expectResponseWithSuccessful } = require("../../../helper");
+const { app, expect, config, request, expectResponseWithSuccessful } = require("../../helper");
 
 
 // Tests for databases
@@ -43,7 +43,7 @@ describe("GET:/api/v2.0/bucket", function () {
     }
 
     beforeEach(async () => {
-        result.response = await request(app).get("/api/v2.0/buckets")
+        result.response = await request(app).get("/api/v2.0/database/buckets")
     })
 
     expectResponseWithSuccessful(result)

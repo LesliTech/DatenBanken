@@ -12,6 +12,8 @@ PUT   /api/auth/password
 POS   /api/token
 DEL   /api/token/:token
 
+GET ★ /api/database
+
 GET ★ /api/buckets
 GET ★ /api/buckets/:bucket
 GET ★ /api/buckets/:bucket/documents

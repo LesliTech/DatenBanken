@@ -32,46 +32,23 @@ Building a better future, one line of code at a time.
 
 
 // · Including framework and controllers
-const DatenBankenController = require("../../datenbanken")
-const { collection } = require("./../../../system/database")
+const express = require("express")
 
 
-//  · 
-class BucketCollectionController extends DatenBankenController {
+
+// Import MongoDB queries
+const bucketDatabaseController = require("../../controllers/v2.0/database")
 
 
-    // · Get collection
-    getCollection(request, response){
-        
-        collection.read({
-            database: "buckets",
-            collection: request.params.bucket
-        }).then(result => {
 
-            super.respondWithSuccessful(response, result)
+// · Routes builder
+let api = express.Router()
 
-        }).catch(error => {
 
-            console.log(error);
 
-            super.responseWithError(response, "000000", "error", error)
+// · Database endpoints
+api.get("/:database", bucketDatabaseController.getDatabase)
 
-        })
 
-    }
-
-    // · Create Collection
-    postCollection(request, response) {
-
-        collection.create({
-            database: "buckets",
-            collection: request.params.bucket
-        }).then(result => {
-            super.respondWithSuccessful(response, { bucket: request.params.bucket })
-
-        })
-
-    }
-}
-
-module.exports = new BucketCollectionController
+// · 
+module.exports = api

@@ -37,7 +37,7 @@ const express = require("express")
 
 
 // Import MongoDB queries
-const bucketDatabaseController = require("../../controllers/v2.0/bucket/database")
+//const bucketDatabaseController = require("../../controllers/v2.0/bucket/database")
 const bucketCollectionController = require("../../controllers/v2.0/bucket/collection")
 const bucketDocumentController = require("../../controllers/v2.0/bucket/document")
 
@@ -49,7 +49,7 @@ let api = express.Router()
 
 
 // · Database endpoints
-api.get("/", bucketDatabaseController.getDatabase)
+//api.get("/", bucketDatabaseController.getDatabase)
 
 
 
