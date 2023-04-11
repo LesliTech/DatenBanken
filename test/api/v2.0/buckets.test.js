@@ -32,11 +32,55 @@ Building a better future, one line of code at a time.
 
 
 // · 
-const { app, expect, config, request, result, faker, expectResponseWithSuccessful } = require("../../../helper");
+const { app, expect, config, request, result, faker, expectResponseWithSuccessful } = require("../../helper");
 
+
+// Tests for buckets
+describe("GET:/api/v2.0/buckets", function () {
+
+    let result = {
+        response: undefined
+    }
+
+    beforeEach(async () => {
+        result.response = await request(app).get("/api/v2.0/buckets")
+    })
+
+    expectResponseWithSuccessful(result)
+
+    it("is expected to respond with information object", function () {
+
+        expect(result.response.body).to.be.an("array")
+
+    })
+
+})
+
+
+describe("POST:/api/v2.0/buckets", function () {
+
+    let result = {
+        bucketId: undefined,
+        response: undefined
+    }
+
+    beforeEach(async () => {
+        result.bucketId = faker.datatype.uuid()
+        result.response = await request(app).post("/api/v2.0/buckets/" + result.bucketId)
+    })
+
+    expectResponseWithSuccessful(result)
+
+    it("is expected to respond with information object", function () {
+
+        expect(result.response.body.bucket).to.eql(result.bucketId)
+
+    })
+
+})
 
 // Tests for databases
-describe("GET:/api/v2.0/bucket/:id", function () {
+describe("GET:/api/v2.0/buckets/:id", function () {
 
     let result = {
         response: undefined
@@ -57,10 +101,8 @@ describe("GET:/api/v2.0/bucket/:id", function () {
         expect(result.response.body.ok).to.equal(1)
 
 
-
         expect(result.response.body).to.have.property("database_collection_document_count")
         expect(result.response.body.database_collection_document_count).to.be.a("number")
-
 
 
         expect(result.response.body).to.have.property("database_collection_uncompressed_data_size")
@@ -68,7 +110,6 @@ describe("GET:/api/v2.0/bucket/:id", function () {
 
         expect(result.response.body.database_collection_uncompressed_data_size).to.have.property("bytes")
         expect(result.response.body.database_collection_uncompressed_data_size.bytes).to.be.an("number")
-
 
 
         expect(result.response.body).to.have.property("document_average_size")

@@ -33,7 +33,7 @@ Building a better future, one line of code at a time.
 
 // · Including framework and controllers
 const DatenBankenController = require("../datenbanken")
-const { database } = require("../../system/database")
+const { database, collection } = require("../../system/database")
 
 
 //  · 
@@ -52,19 +52,6 @@ class BucketController extends DatenBankenController {
             console.log(error);
 
             super.responseWithError(response, "000000", "error", error)
-
-        })
-
-    }
-
-    // · Create Collection
-    postBucket(request, response) {
-
-        collection.create({
-            database: "buckets",
-            collection: request.params.bucket
-        }).then(result => {
-            super.respondWithSuccessful(response, { bucket: request.params.bucket })
 
         })
 

@@ -59,7 +59,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // · Import DatenBanken routes
 const infoRoutes = require("./routers/info")
 const databaseRoutes = require("./routers/v2.0/database")
-const bucketRoutes = require("./routers/v2.0/bucket")
+const bucketRoutes = require("./routers/v2.0/buckets")
 
 
 // · 
