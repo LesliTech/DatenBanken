@@ -89,6 +89,26 @@ class BucketController extends DatenBankenController {
         })
 
     }
+
+    // · Delete a collection
+    deleteBucket(request, response){
+
+        collection.delete({
+            database: "buckets",
+            collection: request.params.bucket
+        }).then(result => {
+
+            super.respondWithSuccessful(response, result)
+
+        }).catch(error => {
+
+            console.log(error);
+
+            super.responseWithError(response, "000000", "error", error)
+
+        })
+
+    }
 }
 
 module.exports = new BucketController

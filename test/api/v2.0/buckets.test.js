@@ -121,3 +121,28 @@ describe("GET:/v2/buckets/:id", function () {
     })
 
 })
+
+
+
+describe("DELETE:/v2/buckets", function () {
+
+    let result = {
+        bucketId: undefined,
+        response: undefined
+    }
+
+    beforeEach(async () => {
+        result.bucketId = faker.datatype.uuid()
+        await request(app).post("/v2/buckets/" + result.bucketId)
+        result.response = await request(app).delete("/v2/buckets/" + result.bucketId)
+    })
+
+    expectResponseWithSuccessful(result)
+
+    it("is expected to respond with information object", function () {
+
+        expect(result.response.body).to.eql(true)
+
+    })
+
+})

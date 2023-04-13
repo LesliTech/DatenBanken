@@ -49,8 +49,9 @@ api.get("/", bucketsController.getBuckets)
 
 
 // · information about a bucket inside the buckets database 
-api.get("/:bucket", bucketsController.getBucket)   // Return information of a collection
-api.post("/:bucket", bucketsController.postBucket) // Create a collection
+api.get("/:bucket", bucketsController.getBucket)        // Return information of a collection
+api.post("/:bucket", bucketsController.postBucket)      // Create a collection
+api.delete("/:bucket", bucketsController.deleteBucket)  // Create a collection
 
 
 // Work with documents from a bucket
