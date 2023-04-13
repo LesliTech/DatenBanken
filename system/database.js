@@ -38,7 +38,7 @@ let { database, collection, document } = require("lesli-nodejs-mongodb-tools/src
 
 
 // · 
-if (!configuration.databaseSettings) {
+if (!configuration.database) {
     exports.database = {}
     exports.document = {}
     exports.collection = {}
@@ -46,8 +46,8 @@ if (!configuration.databaseSettings) {
 
 
 // · 
-if (configuration.databaseSettings) {
-    exports.database = new database(configuration.databaseSettings)
-    exports.document = new document(configuration.databaseSettings)
-    exports.collection = new collection(configuration.databaseSettings)
+if (configuration.database) {
+    exports.database = new database(configuration.database)
+    exports.document = new document(configuration.database)
+    exports.collection = new collection(configuration.database)
 }

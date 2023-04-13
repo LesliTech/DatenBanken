@@ -46,14 +46,14 @@ module.exports = {
     // initial information
     account: {
         email: "admin@datenbanken.dev",
-        password: "db$2022",
+        password: "db$2023",
         secretKey: "YOUR_SECRET_KEY",
     },
 
 
     // database connection details
-    databaseSettings: {
-        namespace: "db",
+    database: {
+        namespace: "datenbanken",
         name: "datenbanken",
         host: "127.0.0.1",
         port: "27017",
