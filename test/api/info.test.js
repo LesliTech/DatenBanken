@@ -36,14 +36,14 @@ const { app, expect, config, request, expectResponseWithSuccessful } = require("
 
 
 // Tests for databases
-describe("GET:/api", function () {
+describe("GET:/", function () {
 
     let result = {
         response: undefined
     }
 
     beforeEach(async () => {
-        result.response = await request(app).get("/api")
+        result.response = await request(app).get("/")
     })
 
     expectResponseWithSuccessful(result)

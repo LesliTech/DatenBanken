@@ -70,9 +70,9 @@ app.use((req, res, next) => {
 
 
 // · DatenBanken routes
-app.use("/api", infoRoutes)
-app.use("/api/v2/database", databaseRoutes)
-app.use("/api/v2/buckets", bucketRoutes)
+app.use("/", infoRoutes)
+app.use("/v2/database", databaseRoutes)
+app.use("/v2/buckets", bucketRoutes)
 
 
 
